@@ -5,7 +5,7 @@ document.getElementById('inputField').addEventListener('input', function(event) 
 
     // Mapping angka ke shio dan gambar
     const angkaToShioDanGambar = {
-        '00': { shio: 'HARIMAU', gambar: 'image/HARIMAU.jpg' },
+        '00': { shio: 'HARIMAU', gambar: 'HARIMAU.jpg' },
         '01': { shio: 'ULAR', gambar: 'image/ULAR.jpg' },
         '02': { shio: 'NAGA', gambar: 'image/NAGA.jpg' },
         '03': { shio: 'KELINCI', gambar: 'image/KELINCI.jpg' },
