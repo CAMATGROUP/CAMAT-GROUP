@@ -1,10 +1,20 @@
-document.getElementById('inputField').addEventListener('input', function (event) {
-    const input = event.target.value.trim(); // Hilangkan spasi di awal dan akhir
+document.getElementById('inputField').addEventListener('input', function(event) {
+    const input = event.target.value;
     const outputText = document.getElementById('outputText');
     const outputImage = document.getElementById('outputImage');
 
     // Mapping angka ke shio dan gambar
     const angkaToShioDanGambar = {
+        '0': { shio: 'HARIMAU', gambar: 'image/harimau.jpg' },
+        '1': { shio: 'ULAR', gambar: 'image/ular.jpg' },
+        '2': { shio: 'NAGA', gambar: 'image/naga.jpg' },
+        '3': { shio: 'KELINCI', gambar: 'image/kelinci.jpg' },
+        '4': { shio: 'HARIMAU', gambar: 'image/harimau.jpg' },
+        '5': { shio: 'KERBAU', gambar: 'image/kerbau.jpg' },
+        '6': { shio: 'TIKUS', gambar: 'image/tikus.jpg' },
+        '7': { shio: 'BABI', gambar: 'image/babi.jpg' },
+        '8': { shio: 'ANJING', gambar: 'image/anjing.jpg' },
+        '9': { shio: 'AYAM', gambar: 'image/ayam.jpg' },
         '00': { shio: 'HARIMAU', gambar: 'image/harimau.jpg' },
         '01': { shio: 'ULAR', gambar: 'image/ular.jpg' },
         '02': { shio: 'NAGA', gambar: 'image/naga.jpg' },
@@ -109,35 +119,31 @@ document.getElementById('inputField').addEventListener('input', function (event)
 
     // Mapping shio ke angka dan gambar
     const shioToAngkaDanGambar = {
-        'ULAR': { angka: ['01', '13', '25', '37', '49', '61', '73', '85', '97'], gambar: 'image/ular.jpg' },
-        'NAGA': { angka: ['02', '14', '26', '38', '50', '62', '74', '86', '98'], gambar: 'image/naga.jpg' },
-        'KELINCI': { angka: ['03', '15', '27', '39', '51', '63', '75', '87', '99'], gambar: 'image/kelinci.jpg' },
-        'HARIMAU': { angka: ['04', '16', '28', '40', '52', '64', '76', '88', '00'], gambar: 'image/harimau.jpg' },
-        'KERBAU': { angka: ['05', '17', '29', '41', '53', '65', '77', '89'], gambar: 'image/kerbau.jpg' },
-        'TIKUS': { angka: ['06', '18', '30', '42', '54', '66', '78', '90'], gambar: 'image/tikus.jpg' },
-        'BABI': { angka: ['07', '19', '31', '43', '55', '67', '79', '91'], gambar: 'image/babi.jpg' },
-        'ANJING': { angka: ['08', '20', '32', '44', '56', '68', '80', '92'], gambar: 'image/anjing.jpg' },
-        'AYAM': { angka: ['09', '21', '33', '45', '57', '69', '81', '93'], gambar: 'image/ayam.jpg' },
-        'MONYET': { angka: ['10', '22', '34', '46', '58', '70', '82', '94'], gambar: 'image/monyet.jpg' },
-        'KAMBING': { angka: ['11', '23', '35', '47', '59', '71', '83', '95'], gambar: 'image/kambing.jpg' },
-        'KUDA': { angka: ['12', '24', '36', '48', '60', '72', '84', '96'], gambar: 'image/kuda.jpg' }
+    'ULAR': { angka: ['01', '13', '25', '37', '49', '61', '73', '85', '97'], gambar: 'image/ular.jpg' },
+    'NAGA': { angka: ['02', '14', '26', '38', '50', '62', '74', '86', '98'], gambar: 'image/naga.jpg' },
+    'KELINCI': { angka: ['03', '15', '27', '39', '51', '63', '75', '87', '99'], gambar: 'image/kelinci.jpg' },
+    'HARIMAU': { angka: ['04', '16', '28', '40', '52', '64', '76', '88', '00'], gambar: 'image/harimau.jpg' },
+    'KERBAU': { angka: ['05', '17', '29', '41', '53', '65', '77', '89'], gambar: 'image/kerbau.jpg' },
+    'TIKUS': { angka: ['06', '18', '30', '42', '54', '66', '78', '90'], gambar: 'image/tikus.jpg' },
+    'BABI': { angka: ['07', '19', '31', '43', '55', '67', '79', '91'], gambar: 'image/babi.jpg' },
+    'ANJING': { angka: ['08', '20', '32', '44', '56', '68', '80', '92'], gambar: 'image/anjing.jpg' },
+    'AYAM': { angka: ['09', '21', '33', '45', '57', '69', '81', '93'], gambar: 'image/ayam.jpg' },
+    'MONYET': { angka: ['10', '22', '34', '46', '58', '70', '82', '94'], gambar: 'image/monyet.jpg' },
+    'KAMBING': { angka: ['11', '23', '35', '47', '59', '71', '83', '95'], gambar: 'image/kambing.jpg' },
+    'KUDA': { angka: ['12', '24', '36', '48', '60', '72', '84', '96'], gambar: 'image/kuda.jpg' }
     };
 
-    // Format input angka menjadi 2 digit
-    const formattedInput = input.length === 1 ? `0${input}` : input;
-
-    if (angkaToShioDanGambar[formattedInput]) {
-        // Jika input adalah angka yang valid
-        outputText.textContent = `Shio: ${angkaToShioDanGambar[formattedInput].shio}`;
-        outputImage.src = angkaToShioDanGambar[formattedInput].gambar;
+    if (angkaToShioDanGambar[input]) {
+        outputText.textContent = `Shio: ${angkaToShioDanGambar[input].shio}`;
+        outputImage.src = angkaToShioDanGambar[input].gambar;
         outputImage.style.display = 'block';
-    } else if (shioToAngkaDanGambar[input.toUpperCase()]) {
-        // Jika input adalah nama shio yang valid
-        outputText.textContent = `Angka: ${shioToAngkaDanGambar[input.toUpperCase()].angka.join(', ')}`;
+    }
+    else if (shioToAngkaDanGambar[input.toUpperCase()]) {
+        outputText.textContent = `Angka: ${shioToAngkaDanGambar[input.toUpperCase()].angka}`;
         outputImage.src = shioToAngkaDanGambar[input.toUpperCase()].gambar;
         outputImage.style.display = 'block';
-    } else {
-        // Jika input tidak valid
+    }
+    else {
         outputText.textContent = 'Input tidak valid';
         outputImage.style.display = 'none';
     }
