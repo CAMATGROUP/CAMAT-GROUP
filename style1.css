@@ -89,7 +89,7 @@ img:hover {
     display: inline-block;
     padding-left: 100%;
     animation: marquee 18s linear infinite;
-    font-size: 20px;
+    font-size: 15px;
     color: #3498db;
 }
 
@@ -121,7 +121,7 @@ img:hover {
     }
 
     .marquee span {
-        font-size: 18px;
+        font-size: 15px;
     }
 }
 
@@ -144,6 +144,6 @@ img:hover {
     }
 
     .marquee span {
-        font-size: 18px;
+        font-size: 15px;
     }
 }
