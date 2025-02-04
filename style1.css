@@ -121,7 +121,7 @@ img:hover {
     }
 
     .marquee span {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
 
@@ -136,7 +136,7 @@ img:hover {
     }
 
     input {
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .output-text {
@@ -144,6 +144,6 @@ img:hover {
     }
 
     .marquee span {
-        font-size: 20px;
+        font-size: 18px;
     }
 }
