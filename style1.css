@@ -44,6 +44,7 @@ input {
     border-radius: 10px;
     outline: none;
     transition: border-color 0.3s ease;
+    margin-bottom: 30px; 
 }
 
 input:focus {
@@ -54,14 +55,12 @@ input:focus {
     font-size: 20px;
     color: #e74c3c;
     margin-top: 20px;
-    margin-bottom: 30px; 
 }
 
 .image-container {
     display: flex;
     justify-content: center;
     margin-top: 20px;
-    margin-bottom: 30px; 
 }
 
 img {
